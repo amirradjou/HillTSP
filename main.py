@@ -58,6 +58,7 @@ cost = calculate_cost(random_route)
 # print(neighbors)
 
 best_route = random_route
+steps = 0
 
 while True:
     cost = calculate_cost(best_route)
@@ -68,9 +69,9 @@ while True:
         if new_route_cost < best_cost:
             best_route = route.copy()
             best_cost = new_route_cost
+    steps += 1
     if best_cost == cost:
         break
-print("Best Route is: ", end='')
-print(best_route)
-print("Best Cost is: ", end='')
-print(best_cost)
+print("Best Route is: " + str(best_route))
+print("Best Cost is: " + str(best_cost))
+print(f"This Algorithm Solved this Problem in {steps} steps")
