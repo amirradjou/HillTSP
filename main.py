@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def swapPositions(list, pos1, pos2):
@@ -59,7 +60,7 @@ cost = calculate_cost(random_route)
 
 best_route = random_route
 steps = 0
-
+tic = time.time()
 while True:
     cost = calculate_cost(best_route)
     neighbors = generate_neighbors(best_route, n)
@@ -72,6 +73,10 @@ while True:
     steps += 1
     if best_cost == cost:
         break
+
+toc = time.time()
+sec = toc - tic
 print("Best Route is: " + str(best_route))
 print("Best Cost is: " + str(best_cost))
 print(f"This Algorithm Solved this Problem in {steps} steps")
+print(f"We reached this route in {sec} second")
